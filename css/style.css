@@ -1,0 +1,1100 @@
+/*!
+ * Ready... Set... English! - Styles
+ * Version: 1.0
+ * Date: January 15, 2025
+ * Author: ObviUS Digital Inc
+ * Copyright: © 2025 Sandra McTavish. All rights reserved.
+ * Code Editor: Toluwalase Mebaanne
+ * Color Palette: Neutral Harmony Bliss
+ */
+
+/*===========================================
+  COLOR VARIABLES
+===========================================*/
+:root {
+    --primary-color:  #1D3961;
+    --secondary-color:  #E35C2C;
+    --tertiary-color: #81B29A;
+    --accent: #DE9E35;
+    --neutral-light: #F4F1DE;
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --dark-text: #2d3748;
+    --light-text: #f8f9fa;
+    /* --Buttons_resting_state: #246DD3;
+    --Buttons_hover_state: #DE9E35; */
+    
+    --bs-primary: var(--primary-color);
+    --bs-secondary: var(--secondary-color);
+    --bs-light: var(--white);
+    --bs-dark: var(--black);
+}
+
+/*===========================================
+  GLOBAL STYLES
+===========================================*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+}
+
+/*===========================================
+  SIDEBAR
+===========================================*/
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: var(--primary-color);
+    z-index: 1030;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    box-shadow: 5px 0 20px rgba(61, 64, 91, 0.3);
+    overflow: hidden;
+}
+
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(242,204,143,0.15)"/><circle cx="80" cy="60" r="0.8" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.2" fill="rgba(242,204,143,0.12)"/><circle cx="70" cy="30" r="0.6" fill="rgba(129,178,154,0.1)"/><circle cx="15" cy="70" r="1" fill="rgba(255,255,255,0.08)"/></svg>');
+    background-size: 100px 100px;
+    animation: sidebarFloat 18s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes sidebarFloat {
+    0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.8; }
+    33% { transform: translateY(-25px) translateX(-15px) scale(1.1); opacity: 1; }
+    66% { transform: translateY(15px) translateX(10px) scale(0.9); opacity: 0.9; }
+    100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.8; }
+}
+
+.sidebar-logo {
+    position: absolute;
+    top: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    z-index: 2;
+}
+
+.sidebar-nav {
+    margin-top: 1rem;
+    z-index: 2;
+}
+
+.sidebar-nav ul {
+    text-align: center;
+}
+
+.sidebar-nav li {
+    margin: 1.8rem 0;
+}
+
+.sidebar-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    display: block;
+}
+
+.sidebar-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.sidebar-nav a:hover::before {
+    transform: scaleX(1);
+}
+
+.sidebar-nav a:hover {
+    color: var(--accent);
+    transform: translateX(10px);
+}
+
+.sidebar-nav a.active {
+    color: var(--white);
+    background: rgba(242, 204, 143, 0.15);
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 3rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--white);
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icons a:hover {
+    color: var(--accent);
+    background: rgba(242, 204, 143, 0.2);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(242, 204, 143, 0.25);
+}
+
+/*===========================================
+  MAIN CONTENT
+===========================================*/
+.main-content {
+    margin-left: 280px;
+}
+
+/*===========================================
+  SECTIONS
+===========================================*/
+.hero-section {
+    background: var(--white);
+    color: var(--dark-text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#about {
+    background: var(--white);
+    color: var(--dark);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#about ul {
+    display: inline-block;
+    text-align: left;
+    list-style: disc;
+}
+
+#about.animate-to-final {
+    background: var(--black);
+    color: var(--light-text);
+}
+
+#resources {
+    background: var(--white);
+    color: var(--dark-text);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 7rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#promo {
+    background: var(--white);
+    color: var(--dark-text);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#promo.animate-to-final {
+    background: var(--black);
+    color: var(--light-text);
+}
+
+#reviews {
+    background: var(--primary-color);
+    color: var(--dark-text);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#reviews.animate-to-final {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
+#author {
+    background: var(--black);
+    color: var(--light-text);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#author.animate-to-final {
+    background: var(--white);
+    color: var(--dark-text);
+}
+
+
+#author .btn-custom-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+#author .btn-custom-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+#contact {
+    background: var(--white);
+    color: var(--dark-text);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#contact.animate-to-final {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
+#newsletter {
+    background: var(--black);
+    color: var(--light-text);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+    transition: all 0.6s ease-out;
+}
+
+#newsletter.animate-to-final {
+    background: var(--white);
+    color: var(--dark-text);
+}
+
+/*===========================================
+  TYPOGRAPHY
+===========================================*/
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark);
+}
+
+.hero-subtitle {
+    color: var(--dark);
+}
+
+.section-title,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+    font-family: 'Playfair Display', serif;
+}
+
+#about .section-title,
+#reviews .section-title,
+#contact .section-title {
+    color: var(--light-text);
+}
+
+#promo .section-title,
+#author .section-title,
+#newsletter .section-title {
+    color: var(--dark-text);
+}
+
+/*===========================================
+  SECTION DIVIDER
+===========================================*/
+.section-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border: none;
+}
+
+/*===========================================
+  3D BOOK COMPONENT
+===========================================*/
+.book-container {
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    margin-top: 2rem;
+    margin-bottom: -3rem;
+}
+
+.book-image {
+    width: 512px;
+    height: 720px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-25deg) rotateX(5deg);
+    animation: bookFloatDramatic 6s ease-in-out infinite;
+}
+
+.book-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 512px;
+    height: 720px;
+    background: url('../img/ready_set_english_bk_cover.png') center/cover;
+    border-radius: 4px 8px 8px 4px;
+    transform: translateZ(10px);
+    box-shadow: 
+        0 15px 35px rgba(61, 64, 91, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.book-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 512px;
+    height: 720px;
+    background: #2a2a2a;
+    border-radius: 8px 4px 4px 8px;
+    transform: translateZ(-10px) rotateY(180deg);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.book-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 720px;
+    background: linear-gradient(to left, #ddd, #ccc, #bbb);
+    transform: rotateY(90deg) translateZ(502px);
+    transform-origin: left;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 
+        inset 2px 0 6px rgba(0, 0, 0, 0.2),
+        0 0 8px rgba(0, 0, 0, 0.1);
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1.5px,
+            rgba(0, 0, 0, 0.1) 1.5px,
+            rgba(0, 0, 0, 0.1) 2px
+        );
+}
+
+.book-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 512px;
+    height: 20px;
+    background: #888;
+    transform: rotateX(-90deg) translateZ(710px);
+    transform-origin: top;
+    border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes bookFloatDramatic {
+    0%, 100% { 
+        transform: rotateY(-25deg) rotateX(5deg) translateY(0px);
+    }
+    50% { 
+        transform: rotateY(-20deg) rotateX(3deg) translateY(-8px);
+    }
+}
+
+/*===========================================
+  PROMO BOOK - SMALLER VERSION
+===========================================*/
+.book-container-promo {
+    height: 500px;
+    margin: 2rem auto;
+}
+
+.book-image-promo {
+    width: 300px;
+    height: 420px;
+}
+
+.book-image-promo .book-front,
+.book-image-promo .book-back {
+    width: 300px;
+    height: 420px;
+}
+
+.book-image-promo .book-right {
+    height: 420px;
+    transform: rotateY(90deg) translateZ(290px);
+}
+
+.book-image-promo .book-top,
+.book-image-promo .book-bottom {
+    width: 300px;
+}
+
+.book-image-promo .book-bottom {
+    transform: rotateX(-90deg) translateZ(410px);
+}
+
+/*===========================================
+  BUTTONS
+===========================================*/
+.btn-custom-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-custom-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-accent-custom {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--black);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-accent-custom:hover {
+    background-color: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--dark-text);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+
+.btn-outline-primary {
+    background-color: var(--white);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+
+.btn-light:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+#about .btn-custom-primary,
+#promo .btn-custom-primary,
+#reviews .btn-custom-primary,
+#contact .btn-custom-primary {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--dark-text);
+}
+
+#about .btn-custom-primary:hover,
+#promo .btn-custom-primary:hover,
+#reviews .btn-custom-primary:hover,
+#contact .btn-custom-primary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--black);
+}
+
+#author .btn-light,
+#newsletter .btn-accent-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+#author .btn-light:hover,
+#newsletter .btn-accent-custom:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/*===========================================
+  REVIEW CARDS
+===========================================*/
+.review-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+    aspect-ratio: 1/1;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.review-card .card-body {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.review-item.active {
+    opacity: 1;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: inherit;
+}
+
+.review-author {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/*===========================================
+  SOCIAL CARDS
+===========================================*/
+.social-card-large {
+    background: linear-gradient(135deg, var(--primary-color), #2c2e42);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: white;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.social-card-large:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(61, 64, 91, 0.3);
+}
+
+/* .social-card-large i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+} */
+
+.social-card-large i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-card-large .fa-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.social-card-large .fa-book {
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #DEB887 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.social-card-large h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.social-card-large p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.social-card-large .btn {
+    background: var(--accent);
+    border: 3px solid var(--accent);
+    color: var(--black);
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    /* box-shadow: 0 6px 20px rgba(242, 204, 143, 0.4); */
+    transition: all 0.3s ease;
+}
+
+.social-card-large .btn:hover {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.6);
+}
+
+/*===========================================
+  FORMS
+===========================================*/
+#newsletter .newsletter-input {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: var(--dark-text);
+    border-radius: 10px;
+}
+
+#newsletter .newsletter-input:focus {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--accent);
+    color: var(--dark-text);
+    box-shadow: 0 0 0 0.2rem rgba(242, 204, 143, 0.25);
+}
+
+#newsletter .newsletter-input::placeholder {
+    color: rgba(45, 55, 72, 0.6);
+}
+
+.newsletter-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--black);
+    border-radius: 10px;
+}
+
+.newsletter-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent);
+    color: var(--white);
+    box-shadow: 0 0 0 0.2rem rgba(242, 204, 143, 0.25);
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-btn {
+    border-radius: 10px;
+}
+
+/*===========================================
+  BACKGROUND EFFECTS
+===========================================*/
+.bg-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(242,204,143,0.1)"/><circle cx="150" cy="100" r="1.5" fill="rgba(255,255,255,0.05)"/><circle cx="100" cy="150" r="2.5" fill="rgba(242,204,143,0.08)"/></svg>');
+    animation: bgFloat 25s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes bgFloat {
+    0% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(-50px) rotate(180deg); }
+    100% { transform: translateX(-100px) rotate(360deg); }
+}
+
+.bg-animated .container {
+    position: relative;
+    z-index: 1;
+}
+
+/*===========================================
+  FOOTER
+===========================================*/
+.footer {
+    background: var(--black);
+    margin-left: 280px;
+}
+
+.footer a {
+    color: var(--accent);
+}
+
+.footer a:hover {
+    color: var(--white);
+}
+
+/*===========================================
+  RIPPLE EFFECT
+===========================================*/
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/*===========================================
+  EDUCATOR RESOURCES SECTION
+  Author: Toluwalase Mebaanne
+===========================================*/
+.resources-body-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    padding: 0 2rem;
+}
+
+.resources-body-text p {
+    text-align: center;
+}
+
+.resources-link-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.resources-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.resources-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(61, 64, 91, 0.25);
+}
+
+/*===========================================
+  UTILITY CLASSES
+===========================================*/
+.sidebar-open {
+    overflow: hidden;
+}
+
+/*===========================================
+  MOBILE RESPONSIVENESS
+===========================================*/
+@media (max-width: 767.98px) {
+    #reviews .row.g-4.justify-content-center > .col-12 {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #reviews .row.g-4.justify-content-center > .col-12 > .row {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    #reviews .review-card {
+        width: 100%;
+        max-width: 420px;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero-section .row {
+        row-gap: 0.5rem;
+    }
+
+    .hero-section .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-section .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    #promo .btn {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto 1rem;
+    }
+
+    .book-container {
+        height: 600px;
+        margin-bottom: 0;
+        margin-top: -2rem;
+        padding: 0;
+    }
+
+    .book-image {
+        width: 340px;
+        height: 480px;
+    }
+
+    .book-front,
+    .book-back {
+        width: 340px;
+        height: 480px;
+    }
+
+    .book-right {
+        height: 480px;
+        transform: rotateY(90deg) translateZ(330px);
+    }
+
+    .book-top,
+    .book-bottom {
+        width: 340px;
+    }
+
+    .book-bottom {
+        transform: rotateX(-90deg) translateZ(470px);
+    }
+    
+    .book-container-promo {
+        height: 400px;
+    }
+    
+    .book-image-promo {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .book-image-promo .book-front,
+    .book-image-promo .book-back {
+        width: 250px;
+        height: 350px;
+    }
+    
+    .book-image-promo .book-right {
+        height: 350px;
+        transform: rotateY(90deg) translateZ(240px);
+    }
+    
+    .book-image-promo .book-top,
+    .book-image-promo .book-bottom {
+        width: 250px;
+    }
+    
+    .book-image-promo .book-bottom {
+        transform: rotateX(-90deg) translateZ(340px);
+    }
+
+    .footer {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        width: 100%;
+        top: 56px;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 56px;
+    }
+
+    .social-icons a {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    #about,
+    #promo,
+    #reviews,
+    #author,
+    #contact,
+    #newsletter {
+        min-height: 70vh;
+        padding: 3rem 0;
+    }
+
+    .hero-section {
+        min-height: 80vh;
+    }
+
+    #mobileTopBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        display: grid;
+        grid-template-columns: 40px 1fr 40px;
+        align-items: center;
+        gap: 12px;
+        padding: 0 12px;
+        background: var(--white);
+        color: var(--dark-text);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        z-index: 1032;
+    }
+
+    #mobileTopBar .topbar-toggle {
+        background: var(--primary-color);
+        color: var(--white);
+        border: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #mobileTopBar .topbar-title {
+        font-weight: 600;
+        font-size: 1rem;
+        text-align: center;
+        justify-self: center;
+    }
+
+    #mobileTopBar .topbar-spacer {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-card-large {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .social-card-large i {
+        font-size: 3rem;
+    }
+    
+    .social-card-large h3 {
+        font-size: 1.5rem;
+    }
+    
+    .resources-body-text {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .resources-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 280px;
+    }
+}
